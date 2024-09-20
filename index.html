@@ -1,192 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Living Room</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <div class="main-container">
-      <div class="background-banner" >
-        <img src="pexels-fotoaibe-1743227.jpg" alt="" id="bannerBackgroundImage"/>
-        <div class="banner-text">
-          <h1>LIVING ROOM<br /></h1>
-          <p>
-            A cozy living room featuring a comfortable sofa, warm lighting, and
-            stylish decor.
-          </p>
-        </div>
-      </div>
-
-      <!-- <div class="container" id="designStyleContainer">
-
-            <div class="cards">
-                <div class="card-item">
-                    <div class="card-image">
-                        <img src="1026152.jpg">
-                    </div>
-                    <div class="card-info">
-                        <h2 class="card-title">Exploring around</h2>
-                        <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia
-                            and Consonantia, there live the blind texts.</p>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Styler</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <a href="index.html"><h2 class="logo">
+          <img class="logo-img" src="Images/logo.png" alt="">
+          <span>Home Styler</span> 
+        </h2></a>
+        <nav class="web-nav">
+        <a class="none" href="index.html"><h2 class="logo-z"><img class="logo-img1" src="Images/logo.png" alt="">
+          <span class="logo-txt">Home Styler</span></h2></a>
+            <ul class="nav-items">
+                <li><a onclick="home()">Home</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a class="drop-d" href="#">Design Styles <svg class="drop-svgg" width="30px" height="30px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.098 8H6.902c-.751 0-1.172.754-.708 1.268L9.292 12.7c.36.399 1.055.399 1.416 0l3.098-3.433C14.27 8.754 13.849 8 13.098 8Z"/></svg></a>
+                    <div class="drop-ds">
+                        <hr class="hr-line">
+                        <ul class="drop-Down-d">
+                        <li><a href="modal.html">Living Room</a></li>
+                        <li><a href="">Kitchen</a></li>
+                        <li><a href="">Bedroom</a></li>
+                        <li><a href="">Bathroom</a></li>
+                        <li><a href="">Contemporary Styles</a></li>
+                        <li><a href="">Elegant Looks Style</a></li>
+                    </ul>
                 </div>
+                </li>
+
+                <li><a class="drop-n">Products<svg class="drop-svg" width="30px" height="30px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.098 8H6.902c-.751 0-1.172.754-.708 1.268L9.292 12.7c.36.399 1.055.399 1.416 0l3.098-3.433C14.27 8.754 13.849 8 13.098 8Z"/></svg></a>
+                <div class="drop">
+                    <hr>
+                    <ul class="drop-Down">
+                    <li><a href="">Furniture</a></li>
+                    <li><a href="">Kitchen</a></li>
+                    <li><a href="">Lighting</a></li>
+                    <li><a href="">Decor</a></li>
+                    <li><a href="">Bathroom</a></li>
+                </ul>
             </div>
-
-
-        </div> -->
-
-      <main class="page-content" id="designStyleContainer"></main>
-
-      <div class="description" id="descriptionStyleContainer"></div>
-
-
-    </div>
-
-    <script>
-      let designStyleContainer = document.getElementById(
-        "designStyleContainer"
-      );
-      let descriptionStyleContainer = document.getElementById(
-        "descriptionStyleContainer"
-      );
-      let dataArray = [];
-
-      designStyleContainer.innerHTML = "Loading....";
-      fetch("designStyles.json")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          dataArray = data;
-          designStyleContainer.innerHTML = "";
-
-          dataArray.map(({ id, category, description, imageUrl }) => {
-            designStyleContainer.innerHTML += `
-                     <div class="card" style="background-image: url('${imageUrl}');
-        background-size: cover;
-        background-position: center;">
-        <div class="content">
-            <button class="btn designStyleViewMoreBtn" data-id='${id}'>View More</button>
-        </div>
-        </div>
-                            `;
-          });
-        })
-        .then(() => {
-          let designStyleViewMoreBtn = document.querySelectorAll(
-            ".designStyleViewMoreBtn"
-          );
-          designStyleViewMoreBtn.forEach((singleBtn) => {
-            singleBtn.addEventListener("click", function () {
-              let designStyleId = singleBtn.getAttribute("data-id");
-              console.log("View More Clicked", designStyleId);
-
-              let singleDataArray = dataArray.find(
-                (style) => style.id == designStyleId
-              );
-
-              console.log(singleDataArray);
-              designStyleContainer.style.display = 'none';
-              let bannerBackgroundImage = document.getElementById('bannerBackgroundImage');
-              bannerBackgroundImage.src = singleDataArray.imageUrl;
-              descriptionStyleContainer.innerHTML = `
-
-                  
-                          <section class="bg-grey">
-      <div id="return-one" class="section section-one">
-        <div class="box1" >
-          <h1 class="ll-h-1">${singleDataArray.category}</h1>
-          <h1 class="all-h-1" style="text-decoration: underline rgba(133, 133, 133, 0.719);">Amir and Sabeen</h1>
-          <div class="all-p-1">
-            <ul> 
-              <li>Known for her modern and luxurious designs.</li>
-              <li>Amir and Sabeen are a renowned husband-and-wife duo in Pakistan's interior design industry. </li>
-              <li>Their firm, Amir and Sabeen Interior Design,is highly regarded for comfortable spaces. </li>
-              <li>They often work with high-end clients, creating bespoke interiors.</li>
-              <li>They are known for blending traditional Pakistani elements with modern styles.</li>
+                </li>
+                <li><a onclick="about()">About</a></li>
+                <li><a onclick="contact()">Contact</a></li>
             </ul>
-            </div>
+        </nav>
+         <div class="search">
+        <svg id="mn-btn" width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://  www.w3.org/2000/svg" transform="rotate(0)matrix(-1, 0, 0, 1, 0, 0)">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+            <g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H14M4 18H9" stroke="whitesmoke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+            </svg>
+    </div> 
+    </header>
+    <!-- HOme page start -->
+<div class="homePageContainer" id="homePageContainer">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" >
+    <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Images/bann-1.jpg" class="d-block w-100" alt="..." style="object-fit: cover;">
+          </div>
+          <div class="carousel-item">
+            <img src="Images/bann-2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="Images/bann-3.jpg" class="d-block w-100" alt="...">
+          </div>
         </div>
-        <div class="box2 thumbnail-component" >
-          <a href="#img1">
-            <img class="thumbnail-image" src="" alt="Image description" />
-          
-          </a>
-          <div id="img1" class="overlay">
-            <a href="#img1" class="overlay-background"></a>
-            <div class="overlay-content">
-              <img class="overlay-image" src="" alt="image description" />
-              <a href="#return-one" class="close-button">✖</a>
-            </div>
-          </div> 
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-    </section>
-    
-
-      <section class="bg-white">
-      <div id="return-five" class="section section-five">
-        <div class="box1">
-          <h1 class="all-h-4">Designs</h1>
-          <p class="all-p-4">${singleDataArray.description}</p>
+  <section>
+    <div class="input-group mb-3 mt-3 search-edit">
+      <button class="btn btn-outline-secondary dropdown-toggle filter-edit" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>&nbsp;
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Hello</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+      <button class="btn btn-outline-secondary dropdown-toggle sort-edit" type="button" data-bs-toggle="dropdown" aria-expanded="false">Sort</button>&nbsp;&nbsp;
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Hye</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+      <input type="text" class="form-control search " aria-label="Text input with dropdown button" placeholder="Search...">
+      <button class="btn btn-dark">Search</button>
+    </div>
+   
+  </section>
+   
+  </section>
+   
+  
+  <section class="third-section">
+    <div class="DesignStyleContainer">
+      <h1 class="designStyleHead">Design Style</h1>
+      <div class="DesignStyleCards">
+      </div>
+    </div>
+  
+  
         
+  
+  
+            <div class="container">
+          <a href="counterstrikedesc.html" style="text-decoration: none;">
+            <div class="third-section-first-line" >
+    
+              <div class="third-section-card first-line-card">
+                <img class="picture"
+                  src="Images/living-room.jpg"
+                  alt="Picture">
+                <div class="video-container">
+                  <video class="video" src="images & videos/CS 2.mp4" loop muted autoplay></video>
+                </div>
+    
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <div class="card__header-text">
+                      <h3 class="card__title">Living Room</h3>
+                      <!-- <span class="card__status">3 hours ago</span> -->
+                    </div>
+                  </div>
+                
+                </div>
+    
+              </div>
+            </a>
+            <a href="pubgdesc.html" style="text-decoration: none;">
+              <div class="third-section-card first-line-card" >
+                <img class="picture" src="Images/kitchen.jpg" alt="Picture">
+                <div class="video-container">
+                  <video class="video" src="images & videos/pubg .mp4" loop muted autoplay></video>
+                </div>
+    
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <div class="card__header-text">
+                      <h3 class="card__title">kitchen</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="reddead2desc.html" style="text-decoration: none;">
+              <div class="third-section-card second-line-card">
+                <img class="picture" src="Images/bedroom.jpg" alt="Picture">
+                <div class="video-container">
+                  <video class="video" src="images & videos/RDR2.mp4" loop muted autoplay></video>
+                </div>
+    
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <div class="card__header-text">
+                      <h3 class="card__title">Bedroom</h3>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </a>
+            <a href="gta5desc.html" style="text-decoration: none;">
+              <div class="third-section-card second-line-card">
+                <img class="picture" src="Images/bathroom.jpg">
+                <div class="video-container">
+                  <video class="video" src="images & videos/GTA V.mp4" loop muted autoplay></video>
+                </div>
+    
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <div class="card__header-text">
+                      <h3 class="card__title">Bathroom</h3>
+                    </div>
+                  </div>
+           
+                </div>
+    
+              </div>
+            </a>
+            <a href="callofdutydesc.html" style="text-decoration: none;">
+              <div class="third-section-card third-line-card">
+                <img class="picture"
+                  src="Images/contemporary-style.jpg"
+                  alt="Picture">
+                <div class="video-container">
+                  <video class="video" src="images & videos/COD.mp4" loop muted autoplay></video>
+                </div>
+    
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <div class="card__header-text">
+                      <h3 class="card__title">Contemporary Styles</h3>
+                      <!-- <span class="card__status">3 hours ago</span> -->
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </a>
+            <a href="cyberpunkdesc.html" style="text-decoration: none;">
+              <div class="third-section-card third-line-card">
+                <img class="picture"
+                  src="Images/elegent look style.jpg"
+                  alt="Picture">
+                <div class="video-container">
+                  <video class="video" src="images & videos/cyber punk.mp4" loop muted autoplay></video>
+                </div>
+    
+                <div class="card__overlay">
+                  <div class="card__header">
+                    <div class="card__header-text">
+                      <h3 class="card__title">Elegent Looks Styles</h3>
+                      <!-- <span class="card__status">3 hours ago</span> -->
+                    </div>
+                  </div>
+                  <!-- <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
+                    blanditiis?</p> -->
+                </div>
+    
+              </div>
+    
+            <!-- </div> -->
+    
+            <!-- ************************************* -->
+    
+            <!-- <div class="third-section-fourth-line"> -->
+            </a>
+          </div>
+          </section>
+     
+    <div class="products">
+      <h1 class="productsHead">Our Products</h1>
+    </div>
+    
+  <main class="page-content">
+    <div class="card" style="background-image: url(Images/living-room.jpg);
+    background-position: center; background-size: cover;">
+      <div class="content">
+        <h2 class="title">Furniture</h2>
+      
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Kitchen</h2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Lighting</h2>
+      </div>
+    </div>
+    <div class="card" >
+      <div class="content">
+        <h2 class="title">Decor</h2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Bathroom</h2>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="content">
+        <h2 class="title">Elegant Looks Styles</h2>
+      </div>
+    </div>
+  </main>
+  <section>
+  
+  
+    <div class="trendingAccessories">
+      <h1 class="trendingAccessoriesHead">Trending Living Room accessories</h1>
+    </div>
+  
+      <div class="sec-abo-1">
+    
+          <img class="about-img" src="Images/acco-carpet.jpg" alt="" >
+      <div class="about-1">
+          <h2 class="about-head-1">CARPET</h2>
+          <p class="about-para-1">Elevate your living room with our modern area carpet, designed to blend style and comfort effortlessly. Featuring a striking geometric pattern in a harmonious color palette, this carpet adds a contemporary flair to any space.
+            Crafted from durable, soft materials, it ensures comfort underfoot while standing up to everyday wear. The plush texture invites relaxation, making it perfect for cozy evenings or entertaining guests.Easy to clean and maintain, this carpet is perfect for busy households. Its non-slip backing provides safety and stability, ideal for homes with children and pets.</p>
+      </div>
+  </div>
+  
+  <br><br>
+      
+     
+  <div class="sec-abo-1">
+      <img class="about-img about-img1" src="Images/acco-table.jpg" alt="" >
+      <div class="about-1">
+          <h2 class="about-head-1">TABLE</h2>
+          <p class="about-para-1">Elevate your living space with our chic coffee table, designed to be both functional and stylish. This table features a sleek, modern silhouette crafted from high-quality materials, combining elegance with durability.
+            The spacious tabletop provides ample room for books, decor, and drinks, while the unique design elements—such as metal accents or a textured finish—add a touch of sophistication.Perfect for both cozy gatherings and casual lounging, this coffee table serves as the ideal centerpiece for your living room.Its versatile style complements a range of decor themes, from contemporary to eclectic.</p>
+      </div>
+  </div>
+  
+  <br><br>
+  <div class="sec-abo-1">
+    
+      <img class="about-img" src="Images/acco-lighting.jpg" alt="" >
+  
+  
+  <div class="about-1">
+   
+      <h2 class="about-head-1">LIGHTING</h2>
+      <p class="about-para-1">Transform your living space with our stylish floor lamp, a perfect blend of form and function. Featuring a sleek design with a contemporary finish, this lamp adds a modern touch to any room.
+        The adjustable arm allows you to direct light exactly where you need it, making it ideal for reading or creating a cozy ambiance. With a warm LED bulb, it provides soft, inviting light that enhances your living room's atmosphere.Available in various colors and materials—such as brushed metal or elegant wood—this floor lamp complements a range of decor styles, from minimalist to bohemian.</p>
+  
+  </div>
+  
+  </div>
+  </section>
+    </div>
+    <!-- HOme page end -->
+
+<!-- /* contact page work start */ -->
+
+<section id="conatct" class="mt-5" style="display: none;">
+  <div class="contact-banner">
+    <img src="Images/lounge-1226015.jpg" alt="">
+    <h1 class="contact-heading">Contact Us</h1>
+</div>
+<form id="reset">
+    <!-- <h2 class="text-center">Contact Us</h2> -->
+    <div class="conct mt-4">
+        <div class="con">
+            <input id="c_firstName" type="text" class="form-control" placeholder="First Name">
+            <p class="text-danger danger" id="firstName_error"></p>
+
         </div>
-        <div class="image-row">
-          <div class="box2 thumbnail-component">
-            <a href="#img5">
-              <img class="thumbnail-image" src="pexels-fotoaibe-1643383.jpg" alt="Image description" />
-              <!--  -->
-            </a>
-            <div id="img5" class="overlay">
-              <a href="#img5" class="overlay-background"></a>
-              <div class="overlay-content">
-                <img class="overlay-image"  src="pexels-fotoaibe-1643383.jpg"image description/>
-                <a href="#return-five" class="close-button">✖</a>
+        <div class="con">
+            <input id="c_lastName" type="text" class="form-control" placeholder="Last Name">
+            <p class="text-danger danger" id="lastName_error"></p>
+        </div>
+      
+    </div>
+    <div class="conct">
+        <div class="con">
+            <input id="c_email" type="email" class="form-control" placeholder="E-mail">
+            <p class="text-danger danger" id="email_error"></p>
+
+        </div>
+        <div class="con">
+            <input id="c_phone" type="text" class="form-control" placeholder="Phone">
+
+            <p class="text-danger danger" id="phone_error"></p>
+        </div>
+    </div>
+    <textarea id="c_message" rows="5" placeholder="Message" class="form-control"></textarea>
+    <p class="text-danger danger" id="message_error"></p>
+    <center><input id="c_btn" type="submit" class="send-btn" value="send message"></center>
+
+    <br>
+    <div id="successMessage"></div>
+  </form>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d231438.99469502864!2d67.0629888!3d24.992153599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1726774481898!5m2!1sen!2s" width="100%" height="450" style="border:0; padding: 0px 30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+
+</section>
+<!-- /* contact page work end */ -->
+<!-- about us page start here -->
+ <section class="aboutPageContainer" id="aboutPageContainer" style="display: none;">
+  <main>
+    <section class="background" id="jumbotron">
+        <img src="images/2880_x_810_1_2880x810_crop_center.webp" alt="" style="margin-top: 25px;">
+      <div class="container">
+        <h1>ABOUT US<br></h1>
+        <!-- <p>the best destination for tourists in the world.</p> -->
+      </div>
+    </section>
+
+    <section class="about-second">
+        <div class="about-second-main">
+            <div class="about-second-main-img"><img src="images/a490ab66e500ef174c4d6b7e1c075a43.jpg" alt=""></div>
+            <div class="about-second-main-text">
+                <h1 class="font-family">Established in 2015</h1>
+                <p>With a strong innate design sense, Natasha has been collaborating with top architects and interior stylists from all over the country, since the past 10 years, for their requirements for projects in the residential, commercial and the hospitality arenas. Brij has been a pioneer in the wholesale segment , supplying furniture, wall art, home décor and accessories and expertise to many top business groups.</p>
+    
+                <p>With years of experience shared between them and an inborn entrepreneurial fire, the duo started The Décor Kart with a belief – To make The Décor Kart an expression of a cultivated and sophisticated lifestyle, where creativity and innovation amalgamate with luxury and fine taste.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-text">
+        <h2 class="font-family">OUR MISSION</h2>
+        <p style="margin-bottom: 2.5rem;">Our mission at The Decor Kart has always been to surprise and delight you with unexpected, distinctive finds for your home. We source and craft all our products with care, ensuring that any treasure you find at The Decor Kart is unique, just like you.</p>
+        
+        <h2 class="font-family">THE FUTURE</h2>
+        <p>Our work constantly revolves around the excellence of classic elegance and contemporary style, and around a sophisticated search of materials to ensure we bring forth personalised elegant ‘treasures’. Not swayed by fleeting trends, TDK offers a timeless range of products that have luxury as a value and durability as a fundamental requirement. We aim to build one of the most customer-centric home decor brand, with a strongomni-channelpresence across Pakistan.</p>
+
+    </section>
+
+    <section class="sectionAbout clearfix">
+      <h3 style="display: flex; align-items: center; justify-content:center; font-size: 2rem;">Our services include</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <div class="about-box">
+              <div class="about-icon">
+              <i><svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 448 512"><path d="M50.7 58.5L0 160l208 0 0-128L93.7 32C75.5 32 58.9 42.3 50.7 58.5zM240 160l208 0L397.3 58.5C389.1 42.3 372.5 32 354.3 32L240 32l0 128zm208 32L0 192 0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-224z"/></svg></i>
               </div>
+              <h3 class="title">Secure Packaging</h3>
+              <p class="description">
+                A skilled packaging department & heavy duty packaging ensures utmost safety for even the most delicate products.
             </div>
           </div>
-          <div class="box2 thumbnail-component">
-            <a href="#img6">
-              <img class="thumbnail-image"   src="pexels-fotoaibe-1743227.jpg" alt="Image description" />
-              
-            </a>
-            <div id="img6" class="overlay">
-              <a href="#img6" class="overlay-background"></a>
-              <div class="overlay-content">
-                <img class="overlay-image" src="pexels-fotoaibe-1743227.jpg" alt="image description" />
-                <a href="#return-five" class="close-button">✖</a>
+          <div class="col-md-4 col-sm-12">
+            <div class="about-box">
+              <div class="about-icon">
+                <svg width="40" height="40" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8 16L4.35009 13.3929C2.24773 11.8912 1 9.46667 1 6.88306V3L8 0L15 3V6.88306C15 9.46667 13.7523 11.8912 11.6499 13.3929L8 16ZM12.2071 5.70711L10.7929 4.29289L7 8.08579L5.20711 6.29289L3.79289 7.70711L7 10.9142L12.2071 5.70711Z" fill="#000000"/>
+                  </svg>
               </div>
+              <h3 class="title">QUALITY GUARANTEE</h3>
+              <p class="description">
+                We rigorously test every product to ensure it meets or exceeds our patrons expectations. If it doesn't, we won't sell it.
             </div>
           </div>
-          <div class="box2 thumbnail-component">
-            <a href="#img7">
-              <img class="thumbnail-image"  src="pexels-home-decor-interiors-634144-1827054.jpg" alt="Image description" />
-            
-            </a>
-            <div id="img7" class="overlay">
-              <a href="#img7" class="overlay-background"></a>
-              <div class="overlay-content">
-                <img class="overlay-image" src="pexels-home-decor-interiors-634144-1827054.jpg" alt="image description" />
-                <a href="#return-five" class="close-button">✖</a>
+    
+          <div class="col-md-4 col-sm-12">
+            <div class="about-box">
+              <div class="about-icon">
+                <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 6L21 6.00072M11 12L21 12.0007M11 18L21 18.0007M3 11.9444L4.53846 13.5L8 10M3 5.94444L4.53846 7.5L8 4M4.5 18H4.51M5 18C5 18.2761 4.77614 18.5 4.5 18.5C4.22386 18.5 4 18.2761 4 18C4 17.7239 4.22386 17.5 4.5 17.5C4.77614 17.5 5 17.7239 5 18Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
               </div>
+              <h3 class="title">Seasonal Decor </h3>
+              <p class="description">
+                Transform your home with seasonal decor that brings a fresh, festive touch to every occasion. From cozy autumn accents to vibrant summer themes
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-                     
-                        `;
-            });
-          });
-        })
 
-        .catch((error) => console.error("Error loading JSON:", error));
+    <section class="about-banner">
+      <div class="about-bannerContent">
+        <h2 class="font-family visit the orient">Visit the Orient.</h2>
+        <!-- <p>The place to find rest, picturesque places and amazing people.</p> -->
+      </div>
+    </section>
+
+    <div style="font-size: 2rem; display: flex; justify-content: center; font-weight: 700; margin-top: 3rem;" class="font-family">OUR STORE</div>
+
+    <!-- <div class="main-container-for-store"> -->
+      <div class="main-container-for-store">
+        <div class="about-card">
+          <div class="about-card-content">
+            <img src="images/WhatsApp Image 2024-09-18 at 16.44.24_b6a06e1d.jpg" alt="Forest scene" width="350" height="300">
+            <div>
+              <h2 class=" font-family">Khan bazar, Islamabad</h2>
+              <p>8C, Khan bazar, Islamabad, Pakistan</p>
+              <p>Mon - Sun, 10.30AM - 8.30PM</p>
+              <p>Phone: +92-5971338191</p>
+              <!-- <a href=https://ui.aceternity.com/components/3d-card-effect class="button">Try now →</a> -->
+            </div>
+          </div>
+          <div class="glow"></div>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-content">
+            <img src="images/WhatsApp Image 2024-09-18 at 16.44.25_af23bb2b.jpg" alt="Forest scene" width="350" height="300">
+            <div>
+              <h2  class=" font-family">DLF Galleria, Lahore</h2>
+              <p>G-85, Galleria Market, Lahore, Pakistan</p>
+              <p>Mon - Sunday: 11AM - 9.30PM</p>
+              <p>Phone: +92-6724338191</p>
+              <!-- <a href=https://ui.aceternity.com/components/3d-card-effect class="button">Try now →</a> -->
+            </div>
+          </div>
+          <div class="glow"></div>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card-content">
+            <img src="images/WhatsApp Image 2024-09-18 at 16.44.25_bb57f3ca.jpg" alt="Forest scene" width="350" height="300">
+            <div>
+              <h2 class=" font-family">Sadar, Karachi</h2>
+              <p>8C, sadar, Karachi, Pakistan</p>
+              <p>Mon - Sun, 10.30AM - 8.30PM</p>
+              <p>Phone: +92-9811338191</p>
+              <!-- <a href=https://ui.aceternity.com/components/3d-card-effect class="button">Try now →</a> -->
+            </div>
+          </div>
+          <div class="glow"></div>
+        </div>
+      </div>
+    <!-- </div> -->
+
+    <div class="second-main-container">
+        <div class="second-section">
+          <div class="second-section__title font-family">Our Executive Team</div>
+        </div>
+        <div class="about-grid" data-column="4">
+          <div class="about-column">
+            <div class="about-user">
+              <div class="about-user__avatar"><img src="images/9e837528f01cf3f42119c5aeeed1b336.jpg" ></div>
+              <div class="about-user__name">Ammar</div>
+              <div class="about-user__title">Web developer</div>
+              <!-- <ul class="about-social">
+                <li class="about-social__item"><a href="https://www.facebook.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://x.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://www.linkedin.com/ " target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+              </ul> -->
+            </div>
+          </div>
+          <div class="about-column">
+            <div class="about-user">
+              <div class="about-user__avatar"><img src="images/9e837528f01cf3f42119c5aeeed1b336.jpg" />
+              </div>
+              <div class="about-user__name">Huzaifa</div>
+              <div class="about-user__title">Web developer</div>
+              <!-- <ul class="about-social">
+                <li class="about-social__item"><a href="https://www.facebook.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://x.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://www.linkedin.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+              </ul> -->
+            </div>
+          </div>
+          <div class="about-column">
+            <div class="about-user">
+              <div class="about-user__avatar"><img src="images/9e837528f01cf3f42119c5aeeed1b336.jpg" />
+              </div>
+              <div class="about-user__name">Hammad</div>
+              <div class="about-user__title">Web developer</div>
+              <!-- <ul class="about-social">
+                <li class="about-social__item"><a href="https://www.facebook.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://x.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://www.linkedin.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+              </ul> -->
+            </div>
+          </div>
+
+          <div class="about-column">
+            <div class="about-user">
+              <div class="about-user__avatar"><img src="images/9e837528f01cf3f42119c5aeeed1b336.jpg" />
+              </div>
+              <div class="about-user__name">Laiba</div>
+              <div class="about-user__title">Web developer</div>
+              <!-- <ul class="about-social">
+                <li class="about-social__item"><a href="https://www.facebook.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M14 9h3l-.375 3H14v9h-3.89v-9H8V9h2.11V6.984c0-1.312.327-2.304.984-2.976C11.75 3.336 12.844 3 14.375 3H17v3h-1.594c-.594 0-.976.094-1.148.281-.172.188-.258.5-.258.938V9z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://x.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M20.875 7.5v.563c0 3.28-1.18 6.257-3.54 8.93C14.978 19.663 11.845 21 7.938 21c-2.5 0-4.812-.687-6.937-2.063.5.063.86.094 1.078.094 2.094 0 3.969-.656 5.625-1.968a4.563 4.563 0 0 1-2.625-.915 4.294 4.294 0 0 1-1.594-2.226c.375.062.657.094.844.094.313 0 .719-.063 1.219-.188-1.031-.219-1.899-.742-2.602-1.57a4.32 4.32 0 0 1-1.054-2.883c.687.328 1.375.516 2.062.516C2.61 9.016 1.938 7.75 1.938 6.094c0-.782.203-1.531.609-2.25 2.406 2.969 5.515 4.547 9.328 4.734-.063-.219-.094-.562-.094-1.031 0-1.281.438-2.36 1.313-3.234C13.969 3.437 15.047 3 16.328 3s2.375.484 3.281 1.453c.938-.156 1.907-.531 2.907-1.125-.313 1.094-.985 1.938-2.016 2.531.969-.093 1.844-.328 2.625-.703-.563.875-1.312 1.656-2.25 2.344z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+                <li class="about-social__item"><a href="https://www.linkedin.com/" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M19.547 3c.406 0 .75.133 1.031.398.281.266.422.602.422 1.008v15.047c0 .406-.14.766-.422 1.078a1.335 1.335 0 0 1-1.031.469h-15c-.406 0-.766-.156-1.078-.469C3.156 20.22 3 19.86 3 19.453V4.406c0-.406.148-.742.445-1.008C3.742 3.133 4.11 3 4.547 3h15zM8.578 18V9.984H6V18h2.578zM7.36 8.766c.407 0 .743-.133 1.008-.399a1.31 1.31 0 0 0 .399-.96c0-.407-.125-.743-.375-1.009C8.14 6.133 7.813 6 7.406 6c-.406 0-.742.133-1.008.398C6.133 6.664 6 7 6 7.406c0 .375.125.696.375.961.25.266.578.399.984.399zM18 18v-4.688c0-1.156-.273-2.03-.82-2.624-.547-.594-1.258-.891-2.133-.891-.938 0-1.719.437-2.344 1.312V9.984h-2.578V18h2.578v-4.547c0-.312.031-.531.094-.656.25-.625.687-.938 1.312-.938.875 0 1.313.578 1.313 1.735V18H18z"
+                        fill-rule="evenodd"></path>
+                    </svg></a></li>
+              </ul> -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </main>
+ </section>
+ 
+ <!-- about us page end -->
+
+<!-- modals work start here -->
+
+ 
+
+
+
+<!-- <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+    <script>
+
+    let homePageContainer = document.getElementById('homePageContainer');
+    let conatct = document.getElementById('conatct');
+    let aboutPageContainer = document.getElementById('aboutPageContainer');
+
+    function home()
+      {
+        homePageContainer.style.display = 'block';
+        conatct.style.display = 'none';
+        aboutPageContainer.style.display = 'none';
+
+      }
+
+      function about()
+      {
+        homePageContainer.style.display = 'none';
+        conatct.style.display = 'none';
+        aboutPageContainer.style.display = 'block';
+
+      }
+      function contact()
+      {
+        homePageContainer.style.display = 'none';
+        conatct.style.display = 'block';
+        aboutPageContainer.style.display = 'none';
+
+      }
+
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-  </body>
+</body>
 </html>
