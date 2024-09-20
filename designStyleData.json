@@ -1,0 +1,105 @@
+[
+    {
+      "id": 1,
+      "category": "Elegant Living Room",
+      "style": "Modern Minimalist",
+      "description": "A sleek and modern living room with minimal furniture and neutral tones.",
+      "imageUrl": "Images/pexels-jvdm-1457842.jpg",
+      "cost": "2500$ - 3500$",
+      "livingRoomCategoryId": 1,
+      "designerName": "Kelly Wearstler",
+      "designerImage": "Images/pexels-cottonbro-4621562.jpg",
+      "designerDescription": "Known for her bold, maximalist style, Kelly Wearstler blends luxury, color, and texture. Her work spans residential, hospitality, and commercial spaces, with a focus on eclectic, art-inspired designs that feel glamorous yet livable.",
+      "ProductsName": [
+        "Modern Sofa Set",
+        "Minimalist Coffee Table",
+        "Abstract Wall Art"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Modern Living Room",
+      "style": "Rustic Charm",
+      "description": "A cozy living room with wooden accents and warm, earthy tones.",
+      "imageUrl": "Images/pexels-jvdm-1543447.jpg",
+      "cost": "3000$ - 4000$",
+      "livingRoomCategoryId": 2,
+      "designerName": "Joanna Gaines",
+      "designerImage": "Images/pexels-ivan-samkov-4458548.jpg",
+      "designerDescription": "Co-host of Fixer Upper, Joanna Gaines is celebrated for her signature modern farmhouse style. She blends rustic elements with modern touches, creating cozy, inviting spaces with a focus on natural materials, vintage finds, and functional design.",
+      "ProductsName": [
+        "Wooden Coffee Table",
+        "Plush Armchair",
+        "Handwoven Rug"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Classic Living Room",
+      "style": "Luxury Glam",
+      "description": "A high-end living room featuring luxurious fabrics, gold accents, and elegant lighting.",
+      "imageUrl": "Images/pexels-olly-3771055.jpg",
+      "cost": "3500$ - 4500$",
+      "livingRoomCategoryId": 3,
+      "designerName": "Nate Berkus",
+      "designerImage": "Images/pexels-olly-3771055.jpg",
+      "designerDescription": "Nate Berkus’ approach to design is rooted in timeless, personal spaces. He combines comfort with elegance, drawing inspiration from his travels. His philosophy emphasizes creating spaces that reflect the client's story, mixing vintage, modern, and sentimental pieces.",
+      "ProductsName": [
+        "Velvet Sofa",
+        "Crystal Chandelier",
+        "Gold Accent Table"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Minimalist Living Room",
+      "style": "Bohemian Chic",
+      "description": "An eclectic living room with vibrant colors, mixed patterns, and a casual vibe.",
+      "imageUrl": "Images/pexels-pixabay-259580.jpg",
+      "cost": "4000$ - 5000$",
+      "livingRoomCategoryId": 4,
+      "designerName": "Jean-Louis Deniot",
+      "designerImage": "Images/pexels-thirdman-5582586.jpg",
+      "designerDescription": "Paris-based Jean-Louis Deniot is revered for his modern, classical designs that feel understated yet luxurious. His signature style blends historical elements with contemporary furnishings, creating timeless interiors with a refined sense of balance, subtle textures, and muted colors.",
+      "ProductsName": [
+        "Patterned Sofa",
+        "Wicker Chair",
+        "Colorful Wall Hangings"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Luxury Living Room",
+      "style": "Industrial Loft",
+      "description": "A modern industrial living room with exposed brick, metal accents, and neutral tones.",
+      "imageUrl": "Images/pexels-pixabay-276528.jpg",
+      "cost": "2000$ - 5000$",
+      "livingRoomCategoryId": 5,
+      "designerName": "Victoria Hagan",
+      "designerImage": "Images/pexels-cottonbro-4621562.jpg",
+      "designerDescription": "Victoria Hagan is celebrated for her clean, elegant, and luxurious designs. Her work emphasizes symmetry, natural light, and a neutral palette. Known for creating serene, classic spaces, she seamlessly blends traditional and modern elements to craft timeless interiors.",
+      "ProductsName": [
+        "Leather Sofa",
+        "Metal Coffee Table",
+        "Exposed Bulb Lighting"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "Rustic Living Room",
+      "style": "Scandinavian Simplicity",
+      "description": "A bright and airy living room with light wood furniture, simple lines, and soft textures.",
+      "imageUrl": "Images/pexels-thirdman-5582586.jpg",
+      "cost": "6000$ - 10000$",
+      "livingRoomCategoryId": 6,
+      "designerName": "Patricia Urquiola",
+      "designerImage": "Images/pexels-olly-3771055.jpg",
+      "designerDescription": "A Spanish designer with an innovative approach, Patricia Urquiola merges functionality with avant-garde aesthetics. Her bold use of color, shape, and materials creates spaces that feel dynamic and modern, while still remaining accessible and comfortable. She is widely respected for her contemporary and experimental designs.",
+      "ProductsName": [
+        "Light Wood Coffee Table",
+        "Fabric Sofa",
+        "Neutral Cushions"
+      ]
+    }
+  ]
+  

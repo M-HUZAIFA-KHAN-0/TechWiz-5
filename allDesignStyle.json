@@ -1,0 +1,193 @@
+[
+    {
+        "livingRoomCategoryName": "Elegant Living Room",
+        "livingRoomCategoryId": 1,
+        "image": "Images/pexels-jvdm-1457842.jpg",
+        "prodId": 1
+    },
+    {
+        "livingRoomCategoryName": "Modern Living Room",
+        "livingRoomCategoryId": 1,
+        "image": "Images/pexels-jvdm-1543447.jpg",
+        "prodId": 2
+    },
+    {
+        "livingRoomCategoryName": "Classic Living Room",
+        "livingRoomCategoryId": 1,
+        "image": "Images/pexels-itsterrymag-2988860.jpg",
+        "prodId": 3
+    },
+    {
+        "livingRoomCategoryName": "Minimalist Living Room",
+        "livingRoomCategoryId": 1,
+        "image": "Images/pexels-pixabay-259580.jpg",
+        "prodId": 4
+    },
+    {
+        "livingRoomCategoryName": "Luxury Living Room",
+        "livingRoomCategoryId": 1,
+        "image": "Images/pexels-pixabay-276528.jpg",
+        "prodId": 5
+    },
+    {
+        "livingRoomCategoryName": "Rustic Living Room",
+        "livingRoomCategoryId": 1,
+        "image": "Images/pexels-vika-glitter-392079-1648776.jpg",
+        "prodId": 6
+    },
+
+    {
+        "kitchenCategoryName": "Modern Kitchen",
+        "kitchenCategoryId": 2,
+        "image": "Images/pexels-falling4utah-2724749.jpg"
+    },
+    {
+        "kitchenCategoryName": "Classic Kitchen",
+        "kitchenCategoryId": 2,
+        "image": "classic-kitchen.jpg"
+    },
+    {
+        "kitchenCategoryName": "Minimalist Kitchen",
+        "kitchenCategoryId": 2,
+        "image": "Images/pexels-fotoaibe-1643384.jpg"
+    },
+    {
+        "kitchenCategoryName": "Rustic Kitchen",
+        "kitchenCategoryId": 2,
+        "image": "Images/pexels-fotoaibe-1643384.jpg"
+    },
+    {
+        "kitchenCategoryName": "Luxury Kitchen",
+        "kitchenCategoryId": 2,
+        "image": "Images/pexels-notswervo-2398375 (1).jpg"
+    },
+    {
+        "kitchenCategoryName": "Industrial Kitchen",
+        "kitchenCategoryId": 2,
+        "image": "Images/pexels-skitterphoto-349749.jpg"
+    },
+
+    {
+        "bedroomCategoryName": "Modern Bedroom",
+        "bedroomCategoryId": 3,
+        "image": "Images/bedroom/pexels-arina-krasnikova-5710698.jpg"
+    },
+    {
+        "bedroomCategoryName": "Classic Bedroom",
+        "bedroomCategoryId": 3,
+        "image": "Images/bedroom/pexels-cmoon-5179593.jpg"
+    },
+    {
+        "bedroomCategoryName": "Minimalist Bedroom",
+        "bedroomCategoryId": 3,
+        "image": "Images/bedroom/pexels-curtis-adams-1694007-3288100.jpg"
+    },
+    {
+        "bedroomCategoryName": "Luxury Bedroom",
+        "bedroomCategoryId": 3,
+        "image": "Images/bedroom/pexels-itsterrymag-2631746.jpg"
+    },
+    {
+        "bedroomCategoryName": "Rustic Bedroom",
+        "bedroomCategoryId": 3,
+        "image": "Images/bedroom/pexels-jonathanborba-3144580.jpg"
+    },
+    {
+        "bedroomCategoryName": "Industrial Bedroom",
+        "bedroomCategoryId": 3,
+        "image": "Images/bedroom/pexels-l-ng-studio-3030613-16648043.jpg"
+    },
+
+    {
+        "bathroomCategoryName": "Modern Bathroom",
+        "bathroomCategoryId": 4,
+        "image": "Images/bathroom/pexels-christa-grover-977018-1909791.jpg"
+    },
+    {
+        "bathroomCategoryName": "Classic Bathroom",
+        "bathroomCategoryId": 4,
+        "image": "Images/bathroom/pexels-christa-grover-977018-1910472.jpg"
+    },
+    {
+        "bathroomCategoryName": "Minimalist Bathroom",
+        "bathroomCategoryId": 4,
+        "image": "Images/bathroom/pexels-curtis-adams-1694007-3288104.jpg"
+    },
+    {
+        "bathroomCategoryName": "Luxury Bathroom",
+        "bathroomCategoryId": 4,
+        "image": "Images/bathroom/pexels-curtis-adams-1694007-4030058.jpg"
+    },
+    {
+        "bathroomCategoryName": "Rustic Bathroom",
+        "bathroomCategoryId": 4,
+        "image": "Images/bathroom/pexels-curtis-adams-1694007-5502225.jpg"
+    },
+    {
+        "bathroomCategoryName": "Industrial Bathroom",
+        "bathroomCategoryId": 4,
+        "image": "Images/bathroom/pexels-itsterrymag-2988865.jpg"
+    },
+
+    {
+        "contemporaryCategoryName": "Contemporary Living Room",
+        "contemporaryCategoryId": 5,
+        "image": "Images/bathroom/pexels-william-lemond-25283-105934.jpg"
+    },
+    {
+        "contemporaryCategoryName": "Contemporary Kitchen",
+        "contemporaryCategoryId": 5,
+        "image": "Images/pexels-jvdm-1457842.jpg"
+    },
+    {
+        "contemporaryCategoryName": "Contemporary Bedroom",
+        "contemporaryCategoryId": 5,
+        "image": "Images/bedroom/pexels-jvdm-1454806.jpg"
+    },
+    {
+        "contemporaryCategoryName": "Contemporary Bathroom",
+        "contemporaryCategoryId": 5,
+        "image": "Images/bathroom/pexels-curtis-adams-1694007-3288104.jpg"
+    },
+    {
+        "contemporaryCategoryName": "Contemporary Office",
+        "contemporaryCategoryId": 5,
+        "image": "Images/bedroom/pexels-curtis-adams-1694007-5353918.jpg"
+    },
+    {
+        "contemporaryCategoryName": "Contemporary Outdoor",
+        "contemporaryCategoryId": 5,
+        "image": "Images/pexels-fotoaibe-1643384.jpg"
+    },
+
+    {
+        "elegantLookCategoryName": "Elegant Living Room",
+        "elegantLookCategoryId": 6,
+        "image": "Images/pexels-level23media-3016430 (1).jpg"
+    },
+    {
+        "elegantLookCategoryName": "Elegant Kitchen",
+        "elegantLookCategoryId": 6,
+        "image": "Images/pexels-level23media-3016430 (1).jpg"
+    },
+    {
+        "elegantLookCategoryName": "Elegant Bedroom",
+        "elegantLookCategoryId": 6,
+        "image": "Images/bedroom/pexels-l-ng-studio-3030613-16648043.jpg"
+    },
+    {
+        "elegantLookCategoryName": "Elegant Bathroom",
+        "elegantLookCategoryId": 6,
+        "image": "Images/bathroom/pexels-quark-studio-1159039-2507016.jpg"
+    },
+    {
+        "elegantLookCategoryName": "Elegant Office",
+        "elegantLookCategoryId": 6,
+        "image": "Images/pexels-pixabay-259580.jpg"
+    },
+    {
+        "elegantLookCategoryName": "Elegant Outdoor",
+        "elegantLookCategoryId": 6,
+        "image": "Images/bathroom/pexels-jworks1124-342800.jpgc"
+    }
+]

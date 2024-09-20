@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Living Room</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="background-banner" >
+        <img src="pexels-fotoaibe-1743227.jpg" alt="" id="bannerBackgroundImage"/>
+        <div class="banner-text">
+          <h1>LIVING ROOM<br /></h1>
+          <p>
+            A cozy living room featuring a comfortable sofa, warm lighting, and
+            stylish decor.
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="container" id="designStyleContainer">
+
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                        <img src="1026152.jpg">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Exploring around</h2>
+                        <p class="card-intro">Far far away, behind the word mountains, far from the countries Vokalia
+                            and Consonantia, there live the blind texts.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> -->
+
+      <main class="page-content" id="designStyleContainer"></main>
+
+      <div class="description" id="descriptionStyleContainer"></div>
+
+
+    </div>
+
+    <script>
+      let designStyleContainer = document.getElementById(
+        "designStyleContainer"
+      );
+      let descriptionStyleContainer = document.getElementById(
+        "descriptionStyleContainer"
+      );
+      let dataArray = [];
+
+      designStyleContainer.innerHTML = "Loading....";
+      fetch("designStyles.json")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          dataArray = data;
+          designStyleContainer.innerHTML = "";
+
+          dataArray.map(({ id, category, description, imageUrl }) => {
+            designStyleContainer.innerHTML += `
+                     <div class="card" style="background-image: url('${imageUrl}');
+        background-size: cover;
+        background-position: center;">
+        <div class="content">
+            <button class="btn designStyleViewMoreBtn" data-id='${id}'>View More</button>
+        </div>
+        </div>
+                            `;
+          });
+        })
+        .then(() => {
+          let designStyleViewMoreBtn = document.querySelectorAll(
+            ".designStyleViewMoreBtn"
+          );
+          designStyleViewMoreBtn.forEach((singleBtn) => {
+            singleBtn.addEventListener("click", function () {
+              let designStyleId = singleBtn.getAttribute("data-id");
+              console.log("View More Clicked", designStyleId);
+
+              let singleDataArray = dataArray.find(
+                (style) => style.id == designStyleId
+              );
+
+              console.log(singleDataArray);
+              designStyleContainer.style.display = 'none';
+              let bannerBackgroundImage = document.getElementById('bannerBackgroundImage');
+              bannerBackgroundImage.src = singleDataArray.imageUrl;
+              descriptionStyleContainer.innerHTML = `
+
+                  
+                          <section class="bg-grey">
+      <div id="return-one" class="section section-one">
+        <div class="box1" >
+          <h1 class="ll-h-1">${singleDataArray.category}</h1>
+          <h1 class="all-h-1" style="text-decoration: underline rgba(133, 133, 133, 0.719);">Amir and Sabeen</h1>
+          <div class="all-p-1">
+            <ul> 
+              <li>Known for her modern and luxurious designs.</li>
+              <li>Amir and Sabeen are a renowned husband-and-wife duo in Pakistan's interior design industry. </li>
+              <li>Their firm, Amir and Sabeen Interior Design,is highly regarded for comfortable spaces. </li>
+              <li>They often work with high-end clients, creating bespoke interiors.</li>
+              <li>They are known for blending traditional Pakistani elements with modern styles.</li>
+            </ul>
+            </div>
+        </div>
+        <div class="box2 thumbnail-component" >
+          <a href="#img1">
+            <img class="thumbnail-image" src="" alt="Image description" />
+          
+          </a>
+          <div id="img1" class="overlay">
+            <a href="#img1" class="overlay-background"></a>
+            <div class="overlay-content">
+              <img class="overlay-image" src="" alt="image description" />
+              <a href="#return-one" class="close-button">✖</a>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </section>
+    
+
+      <section class="bg-white">
+      <div id="return-five" class="section section-five">
+        <div class="box1">
+          <h1 class="all-h-4">Designs</h1>
+          <p class="all-p-4">${singleDataArray.description}</p>
+        
+        </div>
+        <div class="image-row">
+          <div class="box2 thumbnail-component">
+            <a href="#img5">
+              <img class="thumbnail-image" src="pexels-fotoaibe-1643383.jpg" alt="Image description" />
+              <!--  -->
+            </a>
+            <div id="img5" class="overlay">
+              <a href="#img5" class="overlay-background"></a>
+              <div class="overlay-content">
+                <img class="overlay-image"  src="pexels-fotoaibe-1643383.jpg"image description/>
+                <a href="#return-five" class="close-button">✖</a>
+              </div>
+            </div>
+          </div>
+          <div class="box2 thumbnail-component">
+            <a href="#img6">
+              <img class="thumbnail-image"   src="pexels-fotoaibe-1743227.jpg" alt="Image description" />
+              
+            </a>
+            <div id="img6" class="overlay">
+              <a href="#img6" class="overlay-background"></a>
+              <div class="overlay-content">
+                <img class="overlay-image" src="pexels-fotoaibe-1743227.jpg" alt="image description" />
+                <a href="#return-five" class="close-button">✖</a>
+              </div>
+            </div>
+          </div>
+          <div class="box2 thumbnail-component">
+            <a href="#img7">
+              <img class="thumbnail-image"  src="pexels-home-decor-interiors-634144-1827054.jpg" alt="Image description" />
+            
+            </a>
+            <div id="img7" class="overlay">
+              <a href="#img7" class="overlay-background"></a>
+              <div class="overlay-content">
+                <img class="overlay-image" src="pexels-home-decor-interiors-634144-1827054.jpg" alt="image description" />
+                <a href="#return-five" class="close-button">✖</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+                     
+                        `;
+            });
+          });
+        })
+
+        .catch((error) => console.error("Error loading JSON:", error));
+    </script>
+  </body>
+</html>
